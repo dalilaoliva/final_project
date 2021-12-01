@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quiz!
+{% endblock %}
+
+{% block main %}
+    <form action = "/quiz" method = "post">
+        <div style='transform: scale(0.65); position: relative; top: -100px;'>
+            <h3>What is your fitness goal?</h3>
+            <hr />
+          
+            <div>
+                <input type="radio" id="weight-loss" name="option" value="1.1">
+                <label for="huey">Weight loss</label>
+            </div>
+              
+            <div>
+                <input type="radio" id="flexibility" name="option" value="1.2">
+                <label for="dewey">Gain flexibility</label>
+            </div>
+              
+            <div>
+                <input type="radio" id="muscle" name="option" value="1.3">
+                <label for="louie">Build muscle</label>
+            </div>
+              
+            <div>
+                <input type="radio" id="resistance" name="option" value="1.4">
+                <label for="louie">Increase resistance/ athletic performance</label>
+            </div>
+
+            <div>
+                <input type="radio" id="behealthy" name="option" value="1.5">
+                <label for="louie">Be healthy</label>
+            </div>
+    </form>
+{% endblock%}
