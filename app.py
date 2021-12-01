@@ -4,7 +4,6 @@ from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 
-<<<<<<< HEAD
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
@@ -101,13 +100,3 @@ def apology(message, code=400):
             s = s.replace(old, new)
         return s
     return render_template("apology.html", top=code, bottom=escape(message)), code
-=======
-print("Hello")
-name=input("Name:")
-print(name)
-
-# Testing from vscode in my laptop
-# :)
-
-# Seeing if this will appear on my laptop
->>>>>>> 256a9f6171cf6f8580a6760aa4a51df2f29703cf
