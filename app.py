@@ -4,7 +4,6 @@ from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 
-<<<<<<< HEAD
 app = Flask(__name__)
 app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
@@ -23,18 +22,22 @@ db = SQL("sqlite:///userAccounts.db")
 def login():
     error = None
     if request.method == 'POST':
+
         if request.form.get("register"):
             return render_template("register.html")
+
         username = request.form.get("username")
         password = request.form.get("password")
+
         rows = db.execute("SELECT * FROM users WHERE username = ?", username)
+
         if len(rows) != 1 or password != rows[0]['password']:
             error = 'Invalid Credentials. Please try again.'
-            #return render_template('register.html')
         else:
             # Remember which user has logged in
             session["user_id"] = rows[0]["id"]
             return render_template('homepage.html')
+
     return render_template('login.html', error=error)
 
 @app.route("/logout")
@@ -83,7 +86,7 @@ def register():
         # Assigning the userid to the session
         session["user_id"] = userid
 
-        return render_template("homepage.html")
+        return render_template("quiz.html")
 
     else:
         return render_template("register.html")
@@ -101,13 +104,4 @@ def apology(message, code=400):
             s = s.replace(old, new)
         return s
     return render_template("apology.html", top=code, bottom=escape(message)), code
-=======
-print("Hello")
-name=input("Name:")
-print(name)
 
-# Testing from vscode in my laptop
-# :)
-
-# Seeing if this will appear on my laptop
->>>>>>> 256a9f6171cf6f8580a6760aa4a51df2f29703cf
