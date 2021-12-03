@@ -5,7 +5,6 @@ from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 
 app = Flask(__name__)
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
 
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
@@ -22,18 +21,22 @@ db = SQL("sqlite:///userAccounts.db")
 def login():
     error = None
     if request.method == 'POST':
+
         if request.form.get("register"):
             return render_template("register.html")
+
         username = request.form.get("username")
         password = request.form.get("password")
+
         rows = db.execute("SELECT * FROM users WHERE username = ?", username)
+
         if len(rows) != 1 or password != rows[0]['password']:
             error = 'Invalid Credentials. Please try again.'
-            #return render_template('register.html')
         else:
             # Remember which user has logged in
             session["user_id"] = rows[0]["id"]
             return render_template('homepage.html')
+
     return render_template('login.html', error=error)
 
 @app.route("/logout")
@@ -82,7 +85,7 @@ def register():
         # Assigning the userid to the session
         session["user_id"] = userid
 
-        return render_template("homepage.html")
+        return render_template("quiz.html")
 
     else:
         return render_template("register.html")
@@ -99,4 +102,9 @@ def apology(message, code=400):
                          ("%", "~p"), ("#", "~h"), ("/", "~s"), ("\"", "''")]:
             s = s.replace(old, new)
         return s
+<<<<<<< HEAD
     return render_template("apology.html", top=code, bottom=escape(message)), code
+
+=======
+    return render_template("apology.html", top=code, bottom=escape(message)), code
+>>>>>>> 7ceb4051b33285f2df57b0b06179edc0d5d186c3
