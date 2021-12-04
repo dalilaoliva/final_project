@@ -23,6 +23,6 @@ nav .navbar-brand .green
 } */
 
 body {
-    /* height: 3000px; */
+    height: auto;
     background: linear-gradient(141deg, #e9ff70 0%, #ffd670 51%, #ff9770 75%);
   }
