@@ -28,7 +28,7 @@ body {
     /* background: linear-gradient(141deg, #e9ff70 0%, #ffd670 51%, #ff9770 75%); */
     background: linear-gradient(to bottom, #e9ff70, #cdfcb2);
     background-size: 100%;
-	background-repeat: no-repeat;
+	/* background-repeat: no-repeat; */
   }
 
   ::-webkit-scrollbar {
