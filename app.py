@@ -122,5 +122,6 @@ def sorting():
     if request.method == "POST":
         if request.form.get("home"):
             db.execute("UPDATE users SET workout_style = 1 WHERE id= ?", session['user_id'])
-            return render_template("home.html", number = 1)
+            number=1
+            return render_template("home.html", number=number)
     return render_template("quiz.html")
