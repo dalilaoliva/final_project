@@ -7,7 +7,17 @@
 {% block main %}
 
     {% if number == 1 %}
-        <p>You are doing workouts at home.</p>
+        <p>You are doing workouts at home and weightloss.</p>
+    {% elif number == 2 %}
+        <p>You are doing workouts at home and buildmuscle</p>
+    {% elif number == 3 %}
+        <p>You are doing workouts at home and resistance</p>
+    {% elif number == 4 %}
+        <p>You are doing workouts at the gym and weightloss</p>
+    {% elif number == 5 %}
+        <p>You are doing workouts at the gym and buildmuscle</p>
+    {% elif number == 6 %}
+        <p>You are doing workouts at the gym and resistance</p>
     {% else %}
         <p>You have not selected home workouts</p>
     {% endif %}

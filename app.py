@@ -120,10 +120,28 @@ def weightLog():
 @app.route("/quiz", methods=['GET', 'POST'])
 def sorting():
     if request.method == "POST":
+        number=0
         if request.form.get("home"):
-            db.execute("UPDATE users SET workout_style = 1 WHERE id= ?", session['user_id'])
-            number=1
-            return render_template("home.html", number=number)
+            if request.form.get("weightloss"):
+                number=1
+                db.execute("UPDATE users SET workout_style = ? WHERE id= ?", number, session['user_id'])
+            elif request.form.get("buildmuscle"):
+                number=2
+                db.execute("UPDATE users SET workout_style = ? WHERE id= ?", number, session['user_id'])
+            elif request.form.get("resistance"):
+                number=3
+                db.execute("UPDATE users SET workout_style = ? WHERE id= ?", number, session['user_id'])
+        if request.form.get("gym"):
+            if request.form.get("weightloss"):
+                number=4
+                db.execute("UPDATE users SET workout_style = ? WHERE id= ?", number, session['user_id'])
+            elif request.form.get("buildmuscle"):
+                number=5
+                db.execute("UPDATE users SET workout_style = ? WHERE id= ?", number, session['user_id'])
+            elif request.form.get("resistance"):
+                number=6
+                db.execute("UPDATE users SET workout_style = ? WHERE id= ?", number, session['user_id'])
+        return render_template("home.html", number=number)
     return render_template("quiz.html")
 
 @app.route("/home")
