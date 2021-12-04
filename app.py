@@ -6,6 +6,7 @@ from flask_session import Session
 
 app = Flask(__name__)
 
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 app.config['SECRET_KEY'] = 'super secret key'
@@ -19,9 +20,13 @@ db = SQL("sqlite:///userAccounts.db")
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    error = None
-    if request.method == 'POST':
 
+    error = None
+
+    # Forget any user_id
+    session.clear()
+
+    if request.method == 'POST':
         if request.form.get("register"):
             return render_template("register.html")
 
@@ -32,12 +37,13 @@ def login():
 
         if len(rows) != 1 or password != rows[0]['password']:
             error = 'Invalid Credentials. Please try again.'
-        else:
-            # Remember which user has logged in
-            session["user_id"] = rows[0]["id"]
-            return render_template('homepage.html')
+        
+        # Remember which user has logged in
+        session["user_id"] = rows[0]["id"]
+        return render_template('homepage.html')
 
-    return render_template('login.html', error=error)
+    else:
+        return render_template('login.html', error=error)
 
 @app.route("/logout")
 def logout():
@@ -103,3 +109,18 @@ def apology(message, code=400):
             s = s.replace(old, new)
         return s
     return render_template("apology.html", top=code, bottom=escape(message)), code
+
+
+@app.route("/weight-log")
+def weightLog():
+    logs= db.execute("SELECT exercise, weight, date FROM weightLog WHERE userId=?", session['user_id'])
+    
+    return render_template ("weight-log.html", logs=logs)
+
+@app.route("/quiz")
+def sorting():
+    if request.method == "POST":
+        if request.form.get("home"):
+            return("home.html")
+            
+    return render_template("quiz.html")

@@ -1,0 +1,28 @@
+{% extends "homepage.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+<main class="container py-5 text-center">
+    <table class = "table tablestriped">
+        <thead>
+            <tr>
+                <th class="text-start">Exercise</th>
+                <th class="text-end">Weight(Pounds)</th>
+                <th class="text-end">Date</th>
+            </tr>
+        </head>
+        <tbody>
+            {% for log in logs %}
+            <tr>
+                <td class="text-start">{{log['exercise']}}</td>
+                <td class="text-end">{{log['weight']}}</td>
+                <td class="text-end">{{log['date']}}</td>
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+</main>
+{% endblock %}
