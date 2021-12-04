@@ -116,3 +116,11 @@ def weightLog():
     logs= db.execute("SELECT exercise, weight, date FROM weightLog WHERE userId=?", session['user_id'])
     
     return render_template ("weight-log.html", logs=logs)
+
+@app.route("/quiz")
+def sorting():
+    if request.method == "POST":
+        if request.form.get("home"):
+            return("home.html")
+            
+    return render_template("quiz.html")
