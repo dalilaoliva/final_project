@@ -125,3 +125,9 @@ def sorting():
             number=1
             return render_template("home.html", number=number)
     return render_template("quiz.html")
+
+@app.route("/home")
+def workout_page():
+    style = db.execute("SELECT workout_style FROM users WHERE id = ?", session['user_id'])
+    print(style)
+    return render_template("home.html", number=style)
