@@ -23,6 +23,11 @@ nav .navbar-brand .green
 } */
 
 body {
-    height: 100%;
+    height: 100vh;
     background: linear-gradient(141deg, #e9ff70 0%, #ffd670 51%, #ff9770 75%);
   }
+
+.scrollable-element {
+    scrollbar-color: #ff70a6 #e9ff70;
+}
+  
