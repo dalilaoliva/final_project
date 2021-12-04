@@ -40,13 +40,13 @@ body {
    
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: red; 
+    background: rgb(141, 190, 132); 
     border-radius: 10px;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: #b30000; 
+    background: #3c662c; 
   }
 
 /* buttons */
