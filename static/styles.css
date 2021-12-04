@@ -56,6 +56,10 @@ html, body {
     background: #3c662c; 
   }
 
+.font {
+    font-family: 'Gamja Flower', cursive;
+}
+
 /* buttons */
 
 .btn.outline {
