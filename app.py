@@ -3,6 +3,9 @@ import os
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
+from datetime import date
+
+today = date.today()
 
 app = Flask(__name__)
 
@@ -135,7 +138,6 @@ def sorting():
                 number=5
             elif request.form.get("resistance"):
                 number=6
-        print(number)
         db.execute("UPDATE users SET workout_style = ? WHERE id= ?", number, session['user_id'])
         return render_template("home.html", number=number)
     return render_template("quiz.html")
@@ -144,5 +146,6 @@ def sorting():
 def workout_page():
     style = db.execute("SELECT workout_style FROM users WHERE id = ?", session['user_id'])
     number = style[0]["workout_style"]
-    print(number)
+    if request.form.get("weight") and request.form.get("exercise"):
+        db.execute("INSERT INTO weightLog (userId,exercise, weight,date) VALUES (?,?,?,?)", session['user_id'],request.form.get("exercise"), request.form.get("weight"), today)
     return render_template("home.html", number=number)
