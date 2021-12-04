@@ -1,6 +1,13 @@
-<!DOCTYPE html>
+{% extends "homepage.html" %}
 
-<html lang="en">
-    <p>Inside the home gym page</p>
+{% block title %}
+    Workout
+{% endblock %}
 
-</html>
+{% block main %}
+    {% if number ==1}
+        <p>You are doing workouts at home.</p>
+    {% else %}
+        <p>You have not selected home workouts</p>
+    {% endif %}
+{% endblock %}
