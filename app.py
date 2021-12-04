@@ -119,7 +119,7 @@ def weightLog():
 
 @app.route("/quiz", methods=['GET', 'POST'])
 def sorting():
-    if request.method == "GET":
+    if request.method == "POST":
         if request.form.get("home"):
             return render_template("home.html")
     return render_template("quiz.html")
