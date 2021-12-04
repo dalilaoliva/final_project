@@ -129,5 +129,6 @@ def sorting():
 @app.route("/home")
 def workout_page():
     style = db.execute("SELECT workout_style FROM users WHERE id = ?", session['user_id'])
-    print(style)
-    return render_template("home.html", number=style)
+    number = style[0]["workout_style"]
+    print(number)
+    return render_template("home.html", number=number)
