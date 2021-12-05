@@ -8,7 +8,7 @@
 
     {% if number == 1 %}
         <div class="backbox">
-        <h1>You are doing workouts at home and weightloss</h1>
+        <h1 style = "color:#358283">You are doing workouts at home and weightloss</h1>
 
         <ul class = "SG">
             <li class = "sgLi">
@@ -73,7 +73,7 @@
 
     {% elif number == 2 %}
         <div class="backbox">
-        <h1>You are doing workouts at home and buildmuscle</h1>
+        <h1 style = "color:#358283">You are doing workouts at home and buildmuscle</h1>
 
         <ul class = "SG">
             <li class = "sgLi">
@@ -319,11 +319,9 @@
         </div>
 
     {% elif number == 5 %}
-
-        <!-- <li class = "sgLi"> -->
         <form action="/home" method="post">
         <div class="backbox">
-        <h1>You are doing workouts at the gym and buildmuscle</h1>
+        <h1 style = "color:#358283">You are doing workouts at the gym and buildmuscle</h1>
 
         <ul class = "SG">
             <li class = "sgLi">
@@ -424,17 +422,15 @@
                 <button  class="btn btn-primary btn-sm outline" name="record" value= "Record" type="submit">Record</button>
             </div>
         </form>
-        <!-- </li> -->
         </ul>
         </div>
 
 
 
     {% elif number == 6 %}
-        <!-- <li class = "sgLi"> -->
         <form action="/home" method="post">
         <div class="backbox">
-        <h1>You are doing workouts at the gym and resistance</h1>
+        <h1 style = "color:#358283">You are doing workouts at the gym and resistance</h1>
 
         <ul class = "SG">
             <li class = "sgLi">
@@ -476,7 +472,6 @@
                 </div>
             </li>
 
-
             <li class = "sgLi">
                 <div class = "box">
                 <h3>Day 4</h3>
@@ -516,12 +511,11 @@
             </div>
             </div>
         </form>
-        <!-- </li> -->
         </ul>
         </div>
 
     {% else %}
-        <p>You have not selected a style of workout. Take the quiz before and then come back</p>
+        <p style = "color:#358283">You have not selected a style of workout. Take the quiz before and then come back</p>
     {% endif %}
 
 {% endblock %}
