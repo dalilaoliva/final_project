@@ -301,27 +301,27 @@
                 </div>
             </li>
 
-            <li class = "sgLi">
-                <form action="/home" method="post">
+            <form action="/home" method="post">
+                <div>
                     <h>You can log your weights here!</h>
-                    <div class="mb-3">
-                        <input class="form-control mx-auto w-auto" id="exercise" name="exercise" placeholder="Exercise Name" type="text">
-                    </div>
-                    <div class="mb-3">
-                        <input class="form-control mx-auto w-auto" id="weight" name="weight" placeholder="Weight" type="number">
-                    </div>
-                    <div class="mb-3">
-                        <button  class="btn btn-primary btn-sm outline" name="record" value= "Record" type="submit">Record</button>
-                    </div>
-                </form>
-            </li>
+                </div>
+                <div class="mb-3">
+                    <input class="form-control mx-auto w-auto" id="exercise" name="exercise" placeholder="Exercise Name" type="text">
+                </div>
+                <div class="mb-3">
+                    <input class="form-control mx-auto w-auto" id="weight" name="weight" placeholder="Weight" type="number">
+                </div>
+                <div class="mb-3">
+                    <button  class="btn btn-primary btn-sm outline" name="record" value= "Record" type="submit">Record</button>
+                </div>
+            </form>
         </ul>
         </div>
 
     {% elif number == 5 %}
 
-        <li class = "sgLi">
-            <form action="/home" method="post">
+        <!-- <li class = "sgLi"> -->
+        <form action="/home" method="post">
         <div class="backbox">
         <h1>You are doing workouts at the gym and buildmuscle</h1>
 
@@ -411,20 +411,20 @@
                 </div>
             </li>
 
-            <li class = "sgLi">
+            <div>
                 <h>You can log your weights here!</h>
-                <div class="mb-3">
-                    <input class="form-control mx-auto w-auto" id="exercise" name="exercise" placeholder="Exercise Name" type="text">
-                </div>
-                <div class="mb-3">
-                    <input class="form-control mx-auto w-auto" id="weight" name="weight" placeholder="Weight" type="number">
-                </div>
-                <div class="mb-3">
-                    <button  class="btn btn-primary btn-sm outline" name="record" value= "Record" type="submit">Record</button>
-                </div>
-            </li>
-            </form>
-        </li>
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" id="exercise" name="exercise" placeholder="Exercise Name" type="text">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" id="weight" name="weight" placeholder="Weight" type="number">
+            </div>
+            <div class="mb-3">
+                <button  class="btn btn-primary btn-sm outline" name="record" value= "Record" type="submit">Record</button>
+            </div>
+        </form>
+        <!-- </li> -->
         </ul>
         </div>
 
@@ -503,20 +503,18 @@
                 </div>
             </li>
 
-            <li class = "sgLi">
-                <div>
-                    <h>You can log your weights here!</h>
-                </div>
-                <div class="mb-3">
-                    <input class="form-control mx-auto w-auto" id="exercise" name="exercise" placeholder="Exercise Name" type="text">
-                </div>
-                <div class="mb-3">
-                    <input class="form-control mx-auto w-auto" id="weight" name="weight" placeholder="Weight" type="number">
-                </div>
-                <div class="mb-3">
-                    <button  class="btn btn-primary btn-sm outline" name="record" value= "Record" type="submit">Record</button>
-                </div>
-            </li>
+            <div>
+                <h class = "text-center">You can log your weights here!</h>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" id="exercise" name="exercise" placeholder="Exercise Name" type="text">
+            </div>
+            <div class="mb-3">
+                <input class="form-control mx-auto w-auto" id="weight" name="weight" placeholder="Weight" type="number">
+            </div>
+            <div class="mb-3">
+                <button  class="btn btn-primary btn-sm outline" name="record" value= "Record" type="submit">Record</button>
+            </div>
+            </div>
         </form>
         <!-- </li> -->
         </ul>
