@@ -5,30 +5,31 @@
 {% endblock %}
 
 {% block main %}
+    <main>
     <form action = "/quiz" method = "post">
-        <div style='transform: scale(0.65); position: relative; top: -100px;'>
+        <div>
+
             <h3>Where are you more comfortable to work out?</h3>
-            <hr />
             <div>
-                <label><input type="radio" id="home" name="home" value="1">Home</label>
+                <label><input type="radio" id="home" name="option1" value="home">Home</label>
             </div>
             <div>
-                <label><input type="radio" id="gym" name="gym" value="2">Gym</label>
+                <label><input type="radio" id="gym" name="option1" value="gym">Gym</label>
             </div>
 
         </div>
 
-        <div style='transform: scale(0.65); position: relative; top: -100px;'>
+        <div>
+
             <h3>What is your fitness goal?</h3>
-            <hr />
             <div>
-                <label><input type="radio" id="weightloss" name="weightloss" value="3">Weight loss</label>
+                <label><input type="radio" id="weightloss" name="option2" value="weightloss">Weight loss</label>
             </div>
             <div>
-                <label><input type="radio" id="buildmuscle" name="buildmuscle" value="4">Build muscle</label>
+                <label><input type="radio" id="buildmuscle" name="option2" value="buildmuscle">Build muscle</label>
             </div>
             <div>
-                <label><input type="radio" id="resistance" name="resistance" value="5">Increase resistance/ athletic performance</label>
+                <label><input type="radio" id="resistance" name="option2" value="resistance">Increase resistance/ athletic performance</label>
             </div>
 
         </div>
@@ -37,4 +38,5 @@
         </p>
         
     </form>
+    </main>
 {% endblock %}
