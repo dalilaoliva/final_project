@@ -146,9 +146,9 @@ def sorting():
 def workout_page():
     style = db.execute("SELECT workout_style FROM users WHERE id = ?", session['user_id'])
     number = style[0]["workout_style"]
-    print("you are before the if post")
-    if request.method =="POST":
-        print("you are inside the if post")
+    print("you are before the if get")
+    if request.method =="GET":
+        print("you are inside the if get")
         if request.form.get("record"):
             if not request.form.get("weight") or not request.form.get("exercise"):
                 print("Inside the if")
