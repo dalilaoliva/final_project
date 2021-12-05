@@ -148,6 +148,7 @@ def workout_page():
     number = style[0]["workout_style"]
     print("you are before the if post")
     if request.method =="POST":
+        print("you are inside the if post")
         if request.form.get("record"):
             if not request.form.get("weight") or not request.form.get("exercise"):
                 print("Inside the if")
