@@ -274,8 +274,7 @@
                 <div class = "box">
                 <h3>Day 3</h3>
                 <ul class = "s2">
-                <li>Run on the treadmill 30 minutes</li>
-                <p class="mb-5 small text-center text-muted">(1 minute running, 30 seconds walking)</p>
+                <li>Run on the treadmill 30 minutes (1 minute running, 30 seconds walking)</li>
                 </ul>
                 </div>
             </li>
@@ -297,30 +296,34 @@
                 <div class = "box">
                 <h3>Day 5</h3>
                 <ul class = "s2">
-                <li>Run on the treadmill 30 minutes</li>
-                <p class="mb-5 small text-center text-muted">(1 minute running, 30 seconds walking)</p>
+                <li>Run on the treadmill 30 minutes (1 minute running, 30 seconds walking)</li>
                 </ul>
                 </div>
             </li>
 
             <li class = "sgLi">
-                <h>You can log your weights here!</h>
-                <div class="mb-3">
-                    <input class="form-control mx-auto w-auto" id="exercise" name="exercise" placeholder="Exercise Name" type="text">
-                </div>
-                <div class="mb-3">
-                    <input class="form-control mx-auto w-auto" id="weight" name="weight" placeholder="Weight" type="number">
-                </div>
-                <div class="mb-3">
-                    <button  class="btn btn-primary btn-sm outline" name="record" value= "Record" type="submit">Record</button>
-                </div>
+                <form action="/home" method="post">
+                    <h>You can log your weights here!</h>
+                    <div class="mb-3">
+                        <input class="form-control mx-auto w-auto" id="exercise" name="exercise" placeholder="Exercise Name" type="text">
+                    </div>
+                    <div class="mb-3">
+                        <input class="form-control mx-auto w-auto" id="weight" name="weight" placeholder="Weight" type="number">
+                    </div>
+                    <div class="mb-3">
+                        <button  class="btn btn-primary btn-sm outline" name="record" value= "Record" type="submit">Record</button>
+                    </div>
+                </form>
             </li>
-
         </ul>
         </div>
 
     {% elif number == 5 %}
 
+<<<<<<< HEAD
+        <li class = "sgLi">
+            <form action="/home" method="post">
+=======
         <div class="backbox">
         <h1>You are doing workouts at the gym and buildmuscle</h1>
 
@@ -411,6 +414,7 @@
             </li>
 
             <li class = "sgLi">
+>>>>>>> 70f537191d3f37c871099b60e68c28dfad7c3568
                 <h>You can log your weights here!</h>
                 <div class="mb-3">
                     <input class="form-control mx-auto w-auto" id="exercise" name="exercise" placeholder="Exercise Name" type="text">
@@ -421,14 +425,23 @@
                 <div class="mb-3">
                     <button  class="btn btn-primary btn-sm outline" name="record" value= "Record" type="submit">Record</button>
                 </div>
+<<<<<<< HEAD
+            </form>
+        </li>
+=======
             </li>
         </ul>
         </div>
 
 
 
+>>>>>>> 70f537191d3f37c871099b60e68c28dfad7c3568
     {% elif number == 6 %}
 
+<<<<<<< HEAD
+        <li class = "sgLi">
+            <form action="/home" method="post">
+=======
         <div class="backbox">
         <h1>You are doing workouts at the gym and resistance</h1>
 
@@ -500,6 +513,24 @@
             </li>
 
             <li class = "sgLi">
+>>>>>>> 70f537191d3f37c871099b60e68c28dfad7c3568
+                <h>You can log your weights here!</h>
+                <div class="mb-3">
+                    <input class="form-control mx-auto w-auto" id="exercise" name="exercise" placeholder="Exercise Name" type="text">
+                </div>
+                <div class="mb-3">
+                    <input class="form-control mx-auto w-auto" id="weight" name="weight" placeholder="Weight" type="number">
+                </div>
+                <div class="mb-3">
+                    <button  class="btn btn-primary btn-sm outline" name="record" value= "Record" type="submit">Record</button>
+                </div>
+<<<<<<< HEAD
+            </form>
+        </li>
+=======
+            </li>
+
+            <li class = "sgLi">
                 <h>You can log your weights here!</h>
                 <div class="mb-3">
                     <input class="form-control mx-auto w-auto" id="exercise" name="exercise" placeholder="Exercise Name" type="text">
@@ -515,6 +546,7 @@
         </ul>
         </div>
 
+>>>>>>> 70f537191d3f37c871099b60e68c28dfad7c3568
     {% else %}
         <p>You have not selected a style of workout. Take the quiz before and then come back</p>
     {% endif %}
