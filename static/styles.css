@@ -22,16 +22,46 @@ nav .navbar-brand .green
     color: #2e944b;
 } */
 
-body {
-    height: 100vh;
-    background: linear-gradient(141deg, #e9ff70 0%, #ffd670 51%, #ff9770 75%);
+html, body {
+    /* height: 100%; */
+    /* min-height: 100%; */
+    /* background: linear-gradient(141deg, #e9ff70 0%, #ffd670 51%, #ff9770 75%); */
+    /* background: linear-gradient(to bottom, #e9ff70, #cdfcb2); */
+    /* background-size: 100%; */
+	/* background-repeat: no-repeat; */
+
+    background-repeat:no-repeat;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(#e9ff70), to(#cdfcb2)); 
+    background-attachment:fixed;
   }
 
-.scrollable-element {
-    scrollbar-color: #ff70a6 #e9ff70;
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(141, 190, 132); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3c662c; 
+  }
+
+.font {
+    font-family: 'Gamja Flower', cursive;
+    font-size: large;
 }
 
-/* buttons */
+/* Buttons */
 
 .btn.outline {
 	background: none;
@@ -51,9 +81,7 @@ body {
 	box-shadow: none;
 }
 
-/***********************
-  CUSTON BTN VALUES
-************************/
+/* Button values */
 
 .btn {
 	padding: 14px 24px;
@@ -65,4 +93,51 @@ body {
 .btn:focus, .btn:active:focus, .btn.active:focus {
 	outline: 0 none;
 }
-  
+
+/* Workout list design */
+
+.backbox{
+    margin: auto;
+    padding: 1% 2%;
+    max-width: 1440px;
+    border-radius: 5px;
+    background: #ecf0f1;
+    box-shadow: 0 2px 6px 0 rgba(0,0,0, .3);
+  }
+  h1,h2,h3{
+    text-align: center;
+    /* font-family: 'Baloo Tamma', cursive; */
+  }
+  li{
+    color: #2c3e50;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: justify;
+    letter-spacing: 1px;
+    font-family: 'Raleway', serif;
+  }
+  /*SG = style grid*/
+  .SG{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  .SG .sgLi{
+    min-width: 24%;
+    margin: 2% .35%;
+    display: inline-flex;
+    box-shadow: 0 2px 4px rgba(0,0,0, .2);
+  }
+  .SG .sgLi:hover{
+    box-shadow:0 5px 10px rgba(0,0,0,.15);}
+  .SG .box{
+    width: 100%;
+    height: 100vh;
+    padding: 1% 2%;
+    background: #fff;
+    min-height: 200px;
+    max-height: 420px;
+    box-sizing: border-box;
+  }
+
+  .s2{list-style-type: circle;}
