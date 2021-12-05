@@ -126,19 +126,19 @@ def weightLog():
 def sorting():
     if request.method == "POST":
         number=0
-        if request.form.get("home"):
-            if request.form.get("weightloss"):
+        if request.form["option1"] == "home":
+            if request.form["option2"] == "weightloss":
                 number=1
-            elif request.form.get("buildmuscle"):
+            elif request.form["option2"] == "buildmuscle":
                 number=2
-            elif request.form.get("resistance"):
+            elif request.form["option2"] == "resistance":
                 number=3
-        if request.form.get("gym"):
-            if request.form.get("weightloss"):
+        if request.form["option1"] == "gym":
+            if request.form["option2"] == "weightloss":
                 number=4
-            elif request.form.get("buildmuscle"):
+            elif request.form["option2"] == "buildmuscle":
                 number=5
-            elif request.form.get("resistance"):
+            elif request.form["option2"] == "resistance":
                 number=6
         db.execute("UPDATE users SET workout_style = ? WHERE id= ?", number, session['user_id'])
         return render_template("home.html", number=number)
