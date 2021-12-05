@@ -146,7 +146,7 @@ def sorting():
 def workout_page():
     style = db.execute("SELECT workout_style FROM users WHERE id = ?", session['user_id'])
     number = style[0]["workout_style"]
-
+    print("you are before the if post")
     if request.method =="POST":
         if request.form.get("record"):
             if not request.form.get("weight") or not request.form.get("exercise"):
@@ -154,5 +154,5 @@ def workout_page():
                 return apology("Must provide confirmation", 403)
             db.execute("INSERT INTO weightLog (userId,exercise, weight,date) VALUES (?,?,?,?)", session['user_id'],request.form.get("exercise"), request.form.get("weight"), today)
             print("should have inserted into weightlog database")
-
+    print ("returning the homepage")
     return render_template("home.html", number=number)
