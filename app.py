@@ -105,7 +105,9 @@ def apology(message, code=400):
         """
         Escape special characters.
 
-        https://github.com/jacebrowning/memegen#special-characters
+        # https://github.com/jacebrowning/memegen#special-characters
+        #https://api.memegen.link/images/doge/~hspecial_characters~q/underscore__-dash--.png
+
         """
         for old, new in [("-", "--"), (" ", "-"), ("_", "__"), ("?", "~q"),
                          ("%", "~p"), ("#", "~h"), ("/", "~s"), ("\"", "''")]:
@@ -142,18 +144,18 @@ def sorting():
         return render_template("home.html", number=number)
     return render_template("quiz.html")
 
-@app.route("/home")
+@app.route("/home", methods=["GET", "POST"])
 def workout_page():
     style = db.execute("SELECT workout_style FROM users WHERE id = ?", session['user_id'])
     number = style[0]["workout_style"]
-    print("you are before the if get")
-    if request.method =="GET":
-        print("you are inside the if get")
+
+    if request.method =="POST":
+
         if request.form.get("record"):
+
             if not request.form.get("weight") or not request.form.get("exercise"):
-                print("Inside the if")
-                return apology("Must provide confirmation", 403)
+                return apology("Must provide the details", 403)
+
             db.execute("INSERT INTO weightLog (userId,exercise, weight,date) VALUES (?,?,?,?)", session['user_id'],request.form.get("exercise"), request.form.get("weight"), today)
-            print("should have inserted into weightlog database")
-    print ("returning the homepage")
+
     return render_template("home.html", number=number)
