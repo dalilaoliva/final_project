@@ -1,9 +1,11 @@
 import os
+import calendar
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from datetime import date, datetime
+from calendar import HTMLCalendar
 
 today = date.today()
 
@@ -146,7 +148,7 @@ def sorting():
 
 @app.route("/tutorials2")
 def sorting2():
-    workout_style = db.execute("SELECT workout_style FROM users")
+    workout_style = db.execute("SELECT workout_style FROM users WHERE id = ?", session['user_id'])
     if workout_style == 1 or 2 or 3:
         homeup = db.execute("SELECT name, link FROM videos WHERE exercise_type = 'homeup' ")
         homelow = db.execute("SELECT name, link FROM videos WHERE exercise_type = 'homelow' ")
@@ -186,7 +188,8 @@ def calendar():
             db.execute("INSERT INTO calendar (userId, event, day, month, year) VALUES (?,?,?,?,?)", session['user_id'],request.form.get("event"), request.form.get("day"),request.form.get("month"), request.form.get("year"))
             
     user = db.execute("SELECT event, day, month, year FROM calendar WHERE userid =?", session['user_id'])
-    month = datetime.now().month
-    year = datetime.now().year
+    # month = datetime.now().month
+    # year = datetime.now().year
+    # cal = HTMLCalendar().formatmonth(year, month)
         
-    return render_template("calendar.html", user=user, year=year, month=month) #cal=cal
+    return render_template("calendar.html", user=user) #cal=cal
