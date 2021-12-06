@@ -118,7 +118,7 @@ text-align: center;
 }
 .SG .sgLi{
 min-width: 24%;
-margin: 2% .35%;
+margin: 2% 2%;
 display: inline-flex;
 box-shadow: 0 2px 4px rgba(0,0,0, .2);
 }
@@ -160,6 +160,7 @@ box-sizing: border-box;
 box-shadow:0 5px 10px rgba(0,0,0,.15);}
 
 iframe{
+<<<<<<< HEAD
     width: 420px;
     height: 345px;
 }
@@ -175,3 +176,10 @@ iframe{
   }
 =======
 >>>>>>> ca0e7b2010f8c4cb15fae355371fd340ead19ae8
+=======
+    width: 320px;
+    height: 240px;
+    display: block;
+    margin: 0 auto;
+}
+>>>>>>> 8acb4a39ec819c92340d87f6a0abf211fc01c358
