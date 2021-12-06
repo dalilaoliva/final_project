@@ -160,6 +160,7 @@ box-sizing: border-box;
 box-shadow:0 5px 10px rgba(0,0,0,.15);}
 
 iframe{
+<<<<<<< HEAD
     width: 420px;
     height: 345px;
 }
@@ -251,3 +252,10 @@ iframe{
     font-size: 30px;
     font-weight: 500;}
  
+=======
+    width: 320px;
+    height: 240px;
+    display: block;
+    margin: 0 auto;
+}
+>>>>>>> 21a61ca6d77412db1342bd45d996c9dc5f8f9330
