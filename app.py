@@ -1,11 +1,9 @@
 import os
-import calendar
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from datetime import date, datetime
-from calendar import HTMLCalendar
 
 today = date.today()
 
