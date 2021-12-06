@@ -157,5 +157,18 @@ def workout_page():
                 return apology("Must provide the details", 403)
 
             db.execute("INSERT INTO weightLog (userId,exercise, weight,date) VALUES (?,?,?,?)", session['user_id'],request.form.get("exercise"), request.form.get("weight"), today)
-
     return render_template("home.html", number=number)
+
+@app.route("/calendar", methods=["GET", "POST"])
+def calendar():
+
+    if request.method =="POST":
+        print("going into the record")
+        if request.form.get("record"):
+            print("past the record")
+            if not request.form.get("event") or not request.form.get("day") or not request.form.get("month") or not request.form.get("year"):
+                return apology("Must provide the details", 403)
+            print("going into the insert")
+            db.execute("INSERT INTO calendar (userId, event, day, month, year) VALUES (?,?,?,?,?)", session['user_id'],request.form.get("event"), request.form.get("day"),request.form.get("month"), request.form.get("year"))
+            print("outside of the insert")
+    return render_template("calendar.html")
