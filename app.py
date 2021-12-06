@@ -148,7 +148,7 @@ def sorting():
 
 @app.route("/tutorials2")
 def sorting2():
-    workout_style = db.execute("SELECT workout_style FROM users")
+    workout_style = db.execute("SELECT workout_style FROM users WHERE id = ?", session['user_id'])
     if workout_style == 1 or 2 or 3:
         homeup = db.execute("SELECT name, link FROM videos WHERE exercise_type = 'homeup' ")
         homelow = db.execute("SELECT name, link FROM videos WHERE exercise_type = 'homelow' ")
