@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-<form action = "/quiz" method = "post">
+<form action = "/calendar" method = "post">
     <div class="mb-3">
         <input class="form-control mx-auto w-auto" id="event" name="event" placeholder="Event" type="text">
     </div>
@@ -22,5 +22,9 @@
         <button  class="btn btn-primary btn-sm outline" name="record" value= "Record" type="submit">Record</button>
     </div>
 </form>
-
+<center>
+<table style="color:red">
+{{ cal|safe }}
+</table>
+</center>
 {% endblock %}

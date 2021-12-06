@@ -1,9 +1,11 @@
 import os
+import calendar
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
-from datetime import date
+from datetime import date, datetime
+from calendar import HTMLCalendar
 
 today = date.today()
 
@@ -163,12 +165,17 @@ def workout_page():
 def calendar():
 
     if request.method =="POST":
-        print("going into the record")
+
         if request.form.get("record"):
-            print("past the record")
+
             if not request.form.get("event") or not request.form.get("day") or not request.form.get("month") or not request.form.get("year"):
                 return apology("Must provide the details", 403)
-            print("going into the insert")
+
             db.execute("INSERT INTO calendar (userId, event, day, month, year) VALUES (?,?,?,?,?)", session['user_id'],request.form.get("event"), request.form.get("day"),request.form.get("month"), request.form.get("year"))
-            print("outside of the insert")
-    return render_template("calendar.html")
+            
+    user = db.execute("SELECT event, day, month, year FROM calendar WHERE userid =?", session['user_id'])
+    month = datetime.now().month
+    year = datetime.now().year
+    cal = HTMLCalendar().formatmonth(year, month)
+        
+    return render_template("calendar.html", cal=cal, user=user)
