@@ -188,8 +188,8 @@ def calendar():
             db.execute("INSERT INTO calendar (userId, event, day, month, year) VALUES (?,?,?,?,?)", session['user_id'],request.form.get("event"), request.form.get("day"),request.form.get("month"), request.form.get("year"))
             
     user = db.execute("SELECT event, day, month, year FROM calendar WHERE userid =?", session['user_id'])
-    # month = datetime.now().month
-    # year = datetime.now().year
+    month = datetime.now().month
+    year = datetime.now().year
     # cal = HTMLCalendar().formatmonth(year, month)
         
-    return render_template("calendar.html", user=user) #cal=cal
+    return render_template("calendar.html", user=user, month=month, year=year) #cal=cal
