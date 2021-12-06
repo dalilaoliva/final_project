@@ -146,6 +146,20 @@ def sorting():
         return render_template("home.html", number=number)
     return render_template("quiz.html")
 
+@app.route("/tutorials2")
+def sorting2():
+    workout_style = db.execute("SELECT workout_style FROM users")
+    if workout_style == 1 or 2 or 3:
+        homeup = db.execute("SELECT name, link FROM videos WHERE exercise_type = 'homeup' ")
+        homelow = db.execute("SELECT name, link FROM videos WHERE exercise_type = 'homelow' ")
+        return render_template("tutorials2.html", homeup = homeup, homelow = homelow, workout_style = workout_style)
+    elif workout_style == 4 or 5 or 6:
+        gymup = db.execute("SELECT name, link FROM videos WHERE exercise_type = 'gymup' ")
+        gymlow = db.execute("SELECT name, link FROM videos WHERE exercise_type = 'gymlow' ")
+        return render_template("tutorials2.html", gymup = gymup, gymlow = gymlow, workout_style = workout_style)
+    else:
+        return render_template("/")
+
 @app.route("/home", methods=["GET", "POST"])
 def workout_page():
     style = db.execute("SELECT workout_style FROM users WHERE id = ?", session['user_id'])

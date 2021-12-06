@@ -1,0 +1,79 @@
+{% extends "homepage.html" %}
+
+{% block title %}
+    Tutorials
+{% endblock %}
+
+{% block main %}
+
+    {% if workout_style == 1 or 2 or 3 %}
+        <div class="backbox">
+        <h1 style = "color:#358283">Home Workouts</h1>
+
+        <ul class = "SG">
+            <h3 style = "color:#358283">Upperbody</h3>
+
+            {% for home in homeup %}
+            <li class = "sgLi">
+                <div class = "box">
+                <h3>{{home.name}}</h3>
+                <ul>
+                <iframe src= "{{home.link}}" ></iframe>
+                </ul>
+                </div>
+            </li>
+            {% endfor %}
+
+            <h3 style = "color:#358283">Lowerbody</h3>
+
+            {% for home in homelow %}
+            <li class = "sgLi">
+                <div class = "box">
+                <h3>{{home.name}}</h3>
+                <ul>
+                <iframe src= "{{home.link}}" ></iframe>
+                </ul>
+                </div>
+            </li>
+            {% endfor %}
+
+        </ul>
+        </div>
+
+    {% elif workout_style == 4 or 5 or 6 %}
+        <div class="backbox">
+        <h1 style = "color:#358283">Gym Workouts</h1>
+
+        <ul class = "SG">
+            <h3 style = "color:#358283">Upperbody</h3>
+
+            {% for gym in gymup %}
+            <li class = "sgLi">
+                <div class = "box">
+                <h3>{{gym.name}}</h3>
+                <ul>
+                <iframe src= "{{gym.link}}" ></iframe>
+                </ul>
+                </div>
+            </li>
+            {% endfor %}
+
+            <h3 style = "color:#358283">Lowerbody</h3>
+
+            {% for gym in gymlow %}
+            <li class = "sgLi">
+                <div class = "box">
+                <h3>{{gym.name}}</h3>
+                <ul>
+                <iframe src= "{{gym.link}}" ></iframe>
+                </ul>
+                </div>
+            </li>
+            {% endfor %}
+
+        </ul>
+        </div>
+    {%else%}
+        <p style = "color:#358283">You have not selected a style of workout. Take the quiz before and then come back</p>
+    {% endif %}
+{% endblock %}
