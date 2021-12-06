@@ -5,10 +5,15 @@
 {% endblock %}
 
 {% block main %}
-    <div class = "box">
+    <ul class = "SG">
+    <!-- <li class = "sgLi"> -->
+    <div class="text-center">
     <form action = "/quiz" method = "post">
-        <div>
 
+        <li class = "osgLi">
+        <div style="text-align:center" class = "obox" >
+
+            <div style = "color:#cdfcb2">
             <h3>Where are you more comfortable to work out?</h3>
             <div>
                 <label><input type="radio" id="home" name="option1" value="home">Home</label>
@@ -16,11 +21,16 @@
             <div>
                 <label><input type="radio" id="gym" name="option1" value="gym">Gym</label>
             </div>
+            </div>
 
         </div>
+        </li>
 
-        <div>
 
+        <li class = "osgLi">
+        <div style="text-align:center" class = "obox">
+
+            <div style = "color:#cdfcb2">
             <h3>What is your fitness goal?</h3>
             <div>
                 <label><input type="radio" id="weightloss" name="option2" value="weightloss">Weight loss</label>
@@ -31,8 +41,10 @@
             <div>
                 <label><input type="radio" id="resistance" name="option2" value="resistance">Increase resistance/ athletic performance</label>
             </div>
+            </div>
 
         </div>
+        </li>
 
         <div>
             <input  class="btn btn-primary btn-sm outline" type="submit">
@@ -40,4 +52,6 @@
         
     </form>
     </div>
+    <!-- </li> -->
+    </ul>
 {% endblock %}
