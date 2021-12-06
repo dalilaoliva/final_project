@@ -1,0 +1,78 @@
+{% extends "homepage.html" %}
+
+{% block title %}
+    Tutorials
+{% endblock %}
+
+{% block main %}
+
+    {% if number == 1 %}
+        <div class="backbox">
+        <h1 style = "color:#358283">Home Workouts</h1>
+
+        <ul class = "SG">
+            <h3 style = "color:#358283">Upperbody</h3>
+
+            {% for video in videos %}
+            <li class = "sgLi">
+                <div class = "box">
+                <h3>{{video.name}}</h3>
+                <ul>
+                <iframe src= "{{video.video}}" ></iframe>
+                </ul>
+                </div>
+            </li>
+            {% endfor %}
+
+            <h3 style = "color:#358283">Lowerbody</h3>
+
+            {% for video in videos %}
+            <li class = "sgLi">
+                <div class = "box">
+                <h3>{{video.name}}</h3>
+                <ul>
+                <iframe src= "{{video.video}}" ></iframe>
+                </ul>
+                </div>
+            </li>
+            {% endfor %}
+
+        </ul>
+        </div>
+
+    {% else number == 2 %}
+        <div class="backbox">
+        <h1 style = "color:#358283">Gym Workouts</h1>
+
+        <ul class = "SG">
+            <h3 style = "color:#358283">Upperbody</h3>
+
+            {% for video in videos %}
+            <li class = "sgLi">
+                <div class = "box">
+                <h3>{{video.name}}</h3>
+                <ul>
+                <iframe src= "{{video.video}}" ></iframe>
+                </ul>
+                </div>
+            </li>
+            {% endfor %}
+
+            <h3 style = "color:#358283">Lowerbody</h3>
+
+            {% for video in videos %}
+            <li class = "sgLi">
+                <div class = "box">
+                <h3>{{video.name}}</h3>
+                <ul>
+                <iframe src= "{{video.video}}" ></iframe>
+                </ul>
+                </div>
+            </li>
+            {% endfor %}
+
+        </ul>
+        </div>
+
+    {% endif %}
+{% endblock %}
