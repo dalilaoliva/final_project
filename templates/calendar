@@ -1,0 +1,26 @@
+{% extends "homepage.html" %}
+
+{% block title %}
+    calendar
+{% endblock %}
+
+{% block main %}
+<form action = "/quiz" method = "post">
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="event" name="event" placeholder="Event" type="text">
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="month" name="month" placeholder="Month" type="number">
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="day" name="day" placeholder="Day" type="number">
+    </div>
+    <div class="mb-3">
+        <input class="form-control mx-auto w-auto" id="year" name="year" placeholder="Year" type="number">
+    </div>
+    <div class="mb-3">
+        <button  class="btn btn-primary btn-sm outline" name="record" value= "Record" type="submit">Record</button>
+    </div>
+</form>
+
+{% endblock %}
