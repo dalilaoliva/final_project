@@ -160,15 +160,10 @@ box-sizing: border-box;
 box-shadow:0 5px 10px rgba(0,0,0,.15);}
 
 iframe{
-<<<<<<< HEAD
-    width: 420px;
-    height: 345px;
-=======
     width: 320px;
     height: 240px;
     display: block;
     margin: 0 auto;
->>>>>>> 60dc6a4cf4b32367530c41ec98cc53bb402c0f41
 }
 
   .SG .osgLi:hover{
