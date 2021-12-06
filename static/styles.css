@@ -160,26 +160,8 @@ box-sizing: border-box;
 box-shadow:0 5px 10px rgba(0,0,0,.15);}
 
 iframe{
-<<<<<<< HEAD
-    width: 420px;
-    height: 345px;
-}
-
-<<<<<<< HEAD
-  .SG .osgLi:hover{
-    box-shadow:0 5px 10px rgba(0,0,0,.15);}
-
-  .calendar{
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-=======
->>>>>>> ca0e7b2010f8c4cb15fae355371fd340ead19ae8
-=======
     width: 320px;
     height: 240px;
     display: block;
     margin: 0 auto;
 }
->>>>>>> 8acb4a39ec819c92340d87f6a0abf211fc01c358
