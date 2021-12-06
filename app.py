@@ -163,11 +163,12 @@ def workout_page():
 def calendar():
 
     if request.method =="POST":
+        print("going into the record")
         if request.form.get("record"):
+            print("past the record")
             if not request.form.get("event") or not request.form.get("day") or not request.form.get("month") or not request.form.get("year"):
                 return apology("Must provide the details", 403)
-        
-        print("going into the insert")
-        db.execute("INSERT INTO calendar (userId, event, day, month, year) VALUES (?,?,?,?,?)", session['user_id'],request.form.get("event"), request.form.get("day"),request.form.get("month"), request.form.get("year"))
-        print("outside of the insert")
+            print("going into the insert")
+            db.execute("INSERT INTO calendar (userId, event, day, month, year) VALUES (?,?,?,?,?)", session['user_id'],request.form.get("event"), request.form.get("day"),request.form.get("month"), request.form.get("year"))
+            print("outside of the insert")
     return render_template("calendar.html")
