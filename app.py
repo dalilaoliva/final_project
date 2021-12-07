@@ -150,18 +150,15 @@ def sorting():
 def sorting2():
     workout_style = db.execute("SELECT workout_style FROM users WHERE id = ?", session['user_id'])
     wstyle=workout_style[0]['workout_style']
-    print(wstyle)
-    
+
     if wstyle == 1 or wstyle == 2 or wstyle == 3:
         homeup = db.execute("SELECT name, link FROM videos WHERE exercise_type = 'homeup' ")
         homelow = db.execute("SELECT name, link FROM videos WHERE exercise_type = 'homelow' ")
-        print("returning home")
         return render_template("tutorials2.html", homeup = homeup, homelow = homelow, wstyle = wstyle)
 
     elif wstyle == 4 or wstyle == 5 or wstyle == 6:
         gymup = db.execute("SELECT name, link FROM videos WHERE exercise_type = 'gymup' ")
         gymlow = db.execute("SELECT name, link FROM videos WHERE exercise_type = 'gymlow' ")
-        print("returning gym")
         return render_template("tutorials2.html", gymup = gymup, gymlow = gymlow, wstyle = wstyle)
 
     else:
