@@ -131,8 +131,8 @@ def weightLog():
 # Sorting which workout method the user will be assigned beased on their answers to the quiz
 @app.route("/quiz", methods=['GET', 'POST'])
 def sorting():
+    number=0
     if request.method == "POST":
-        number=0
 
         # if not request.form["option1"] or not request.form["option2"]:
         #     return apology("Must choose one answer from each question", 400)
@@ -160,6 +160,11 @@ def sorting():
         
         db.execute("UPDATE users SET workout_style = ? WHERE id= ?", number, session['user_id'])
         return render_template("home.html", number=number)
+    else:
+        print(number)
+        if number == 0:
+            return apology("Must choose one answer from each question", 400)
+
     return render_template("quiz.html")
 
 # Displaying a page with tutorials on the exercises depending on the setting the person has chosen in the quiz.
