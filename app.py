@@ -205,7 +205,7 @@ def calendar():
         
     return render_template("calendar.html", user=user, month=month, year=year)
 
-
+# Displays the Greeting message
 @app.route("/greet")
 def greet():
     return render_template("greet.html")
