@@ -134,8 +134,9 @@ def sorting():
     number=0
     if request.method == "POST":
 
-        # if not request.form["option1"] or not request.form["option2"]:
-        #     return apology("Must choose one answer from each question", 400)
+        if not request.form["option1"] or not request.form["option2"]:
+            return apology("Must choose one answer from each question", 400)
+            
         print (request.form["option1"])
         print (request.form["option2"])
         if request.form["option1"] == "home":
@@ -146,7 +147,7 @@ def sorting():
             elif request.form["option2"] == "resistance":
                 number=3
 
-        if request.form["option1"] == "gym":
+        elif request.form["option1"] == "gym":
             if request.form["option2"] == "weightloss":
                 number=4
             elif request.form["option2"] == "buildmuscle":
@@ -154,16 +155,13 @@ def sorting():
             elif request.form["option2"] == "resistance":
                 number=6
 
-        print(number)
-        if number == 0:
-            return apology("Must choose one answer from each question", 400)
+        # if number == 0:
+        # else:
+        #     print(number)
+        #     return apology("Must choose one answer from each question", 400)
         
         db.execute("UPDATE users SET workout_style = ? WHERE id= ?", number, session['user_id'])
         return render_template("home.html", number=number)
-    else:
-        print(number)
-        if number == 0:
-            return apology("Must choose one answer from each question", 400)
 
     return render_template("quiz.html")
 
