@@ -133,9 +133,11 @@ def weightLog():
 def sorting():
     if request.method == "POST":
         number=0
-        if not request.form["option1"] or not request.form["option2"]:
-            return apology("Must choose one answer from each question", 400)
 
+        # if not request.form["option1"] or not request.form["option2"]:
+        #     return apology("Must choose one answer from each question", 400)
+        print (request.form["option1"])
+        print (request.form["option2"])
         if request.form["option1"] == "home":
             if request.form["option2"] == "weightloss":
                 number=1
@@ -143,7 +145,7 @@ def sorting():
                 number=2
             elif request.form["option2"] == "resistance":
                 number=3
-                
+
         if request.form["option1"] == "gym":
             if request.form["option2"] == "weightloss":
                 number=4
@@ -151,6 +153,10 @@ def sorting():
                 number=5
             elif request.form["option2"] == "resistance":
                 number=6
+
+        print(number)
+        if number == 0:
+            return apology("Must choose one answer from each question", 400)
         
         db.execute("UPDATE users SET workout_style = ? WHERE id= ?", number, session['user_id'])
         return render_template("home.html", number=number)
