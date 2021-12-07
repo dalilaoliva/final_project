@@ -10,39 +10,39 @@ nav .navbar-brand .blue
     color: #537fbe;
 }
 
+/* Making the background gradient color */
 html, body {
-    background-repeat:no-repeat;
-    background-image: -webkit-gradient(linear, left top, left bottom, from(#CAF0F8), to(#0077B6)); 
-    background-attachment:fixed;
-  }
-
-  ::-webkit-scrollbar {
-    width: 20px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
-    border-radius: 10px;
-  }
-   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #00a8e0; 
-    border-radius: 10px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background: #0077B6; 
-  }
-
-.font {
-    font-family: 'Merriweather', cursive;
-    font-size: large;
+  background-repeat:no-repeat;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#CAF0F8), to(#0077B6)); 
+  background-attachment:fixed;
 }
 
-/* Buttons */
+/* Scrollbar changes */
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #00a8e0; 
+  border-radius: 10px;
+}
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0077B6; 
+}
+
+.font {
+  font-family: 'Merriweather', cursive;
+  font-size: large;
+}
+
+/* Submitting Buttons */
 
 .btn.outline {
 	background: none;
@@ -61,9 +61,7 @@ html, body {
 	color: #007299;
 	box-shadow: none;
 }
-
 /* Button values */
-
 .btn {
 	padding: 14px 24px;
 	border: 0 none;
@@ -78,159 +76,152 @@ html, body {
 /* Workout list design */
 
 h1,h2,h3{
-text-align: center;
+  text-align: center;
 }
-
 li{
-color: #CAF0F8;
-font-size: 18px;
-line-height: 30px;
-text-align: justify;
-letter-spacing: 1px;
+  color: #CAF0F8;
+  font-size: 18px;
+  line-height: 30px;
+  text-align: justify;
+  letter-spacing: 1px;
 }
-
 /*SG = style grid*/
 .SG{
-margin: 0;
-padding: 0;
-text-align: center;
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 .SG .sgLi{
-min-width: 24%;
-margin: 2% 2%;
-display: inline-flex;
-box-shadow: 0 2px 4px rgba(0,0,0, .2);
+  min-width: 24%;
+  margin: 2% 2%;
+  display: inline-flex;
+  box-shadow: 0 2px 4px rgba(0,0,0, .2);
 }
-
 .SG .sgLi:hover{
-box-shadow:0 5px 10px rgba(0,0,0,.15);}
-
+  box-shadow:0 5px 10px rgba(0,0,0,.15);}
 .SG .box{
-width: 100%;
-height: 100vh;
-padding: 1% 2%;
-background: #0077B6;
-min-height: 200px;
-max-height: 420px;
-box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  padding: 1% 2%;
+  background: #0077B6;
+  min-height: 200px;
+  max-height: 420px;
+  box-sizing: border-box;
 }
-
 .s2{list-style-type: circle;}
 
 /* Quiz boxes */
-.SG .osgLi{
-min-width: 24%;
-margin: 2% 15%;
-display: block;
-box-shadow: 0 2px 4px rgba(0,0,0, .2);
-}
 
+.SG .osgLi{
+  min-width: 24%;
+  margin: 2% 15%;
+  display: block;
+  box-shadow: 0 2px 4px rgba(0,0,0, .2);
+}
 .SG .obox{
-width: 100%;
-height: 100vh;
-padding: 1% 2%;
-background: #0077B6;
-min-height: 200px;
-max-height: 220px;
-box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  padding: 1% 2%;
+  background: #0077B6;
+  min-height: 200px;
+  max-height: 220px;
+  box-sizing: border-box;
+}
+.SG .osgLi:hover{
+  box-shadow:0 5px 10px rgba(0,0,0,.15);}
+
+/* Video Dimensions + position */
+iframe{
+  width: 320px;
+  height: 240px;
+  display: block;
+  margin: 0 auto;
 }
 
 .SG .osgLi:hover{
-box-shadow:0 5px 10px rgba(0,0,0,.15);}
+  box-shadow:0 5px 10px rgba(0,0,0,.15);}
 
-iframe{
-    width: 320px;
-    height: 240px;
-    display: block;
-    margin: 0 auto;
+.calendar{
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
-  .SG .osgLi:hover{
-    box-shadow:0 5px 10px rgba(0,0,0,.15);}
+/* calendar  */
+.wrapper {
+  background-color: #dfe6e9;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+.calendar {
+  margin: auto;
+  width: 600px;
+  background-color: #fff;
+  box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.2);
+}
+.month {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 40px 30px;
+  text-align: center;
+  background-color: #22a7f4;
+  color: #fff;
+}
+.weekdays {
+  background-color: #3998cf;
+  color: #fff;
+  padding: 7px 0;
+  display: flex;
+}
+.days {
+  font-weight: 300;
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+.weekdays div,
+.days div {
+  text-align: center;
+  width: 14.28%;
+}
+.days div {
+  padding: 10px 0;
+  margin-bottom: 10px;
+  transition: all 0.4s;
+}
+.prev_date {
+  color: #999;
+}
+.today {
+  background-color: #22a7f4;
+  color: #fff;
+}
+.days div:hover {
+  cursor: pointer;
+  background-color: #dfe6e9
+}
+.prev,
+.next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 23px;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
+}
+.prev:hover,
+.next:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.2);
+}
 
-  .calendar{
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
+#month {
+  font-weight: 500;}
 
-  /* calendar  */
-  .wrapper {
-    background-color: #dfe6e9;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    }
-    .calendar {
-    margin: auto;
-    width: 600px;
-    background-color: #fff;
-    box-shadow: 0px 0px 15px 4px rgba(0, 0, 0, 0.2);
-   
-    }
-    .month {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 40px 30px;
-    text-align: center;
-    background-color: #22a7f4;
-    color: #fff;
-    }
-    .weekdays {
-    background-color: #3998cf;
-    color: #fff;
-    padding: 7px 0;
-    display: flex;
-    }
-    .days {
-    font-weight: 300;
-    padding: 10px 0;
-    display: flex;
-    flex-wrap: wrap;
-    }
-    .weekdays div,
-    .days div {
-    text-align: center;
-    width: 14.28%;
-    }
-    .days div {
-    padding: 10px 0;
-    margin-bottom: 10px;
-    transition: all 0.4s;
-    }
-    .prev_date {
-    color: #999;
-    }
-    .today {
-    background-color: #22a7f4;
-    color: #fff;
-    }
-    .days div:hover {
-    cursor: pointer;
-    background-color: #dfe6e9
-    }
-    .prev,
-    .next {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 23px;
-    background-color: rgba(0, 0, 0, 0.1);
-    transition: all 0.4s;
-    }
-    .prev:hover,
-    .next:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.2);
-    }
 
-    #month {
-    /* font-size: 30px; */
-    font-weight: 500;}
- 
-    
