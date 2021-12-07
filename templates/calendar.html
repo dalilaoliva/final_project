@@ -15,9 +15,7 @@
         var endDate = new Date(dt.getFullYear(), dt.getMonth() + 1, 0).getDate();
         var prevDate = new Date(dt.getFullYear(), dt.getMonth(), 0).getDate();
         var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-        //document.getElementById("month").innerHTML = months[dt.getMonth()];
         document.getElementById("date_str").innerHTML = months[dt.getMonth()];
-        //document.getElementById("year").innerHTML = today.getFullYear;
         var cells = "";
         for (x = day; x > 0; x--) 
         {
@@ -63,9 +61,6 @@
         <button  class="btn btn-primary btn-sm outline" name="record" value= "Record" type="submit">Record</button>
     </div>
 </form>
-<!-- <center>
-{{ cal|safe }}
- </center> -->
     <body onload="renderDate()">
         <div class="wrapper">
             <div class="calendar">
