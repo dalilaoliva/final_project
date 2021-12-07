@@ -131,12 +131,15 @@ def weightLog():
 # Sorting which workout method the user will be assigned beased on their answers to the quiz
 @app.route("/quiz", methods=['GET', 'POST'])
 def sorting():
-    number=0
+
     if request.method == "POST":
 
+        number=0
         if not request.form["option1"]:
+            print("option 1")
             return apology("Choose one answer from each question", 403)
         if not request.form["option2"]:
+            print("option 2")
             return apology("Choose one answer from each question", 403)
 
         if request.form["option1"] == "home":
