@@ -1,11 +1,9 @@
 import os
-import calendar
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
 from flask_session import Session
 from datetime import date, datetime
-from calendar import HTMLCalendar
 
 today = date.today()
 
@@ -26,14 +24,19 @@ db = SQL("sqlite:///userAccounts.db")
 @app.route('/login', methods=['GET', 'POST'])
 def login():
 
-    error = None
-
-    # Forget any user_id
     session.clear()
 
     if request.method == 'POST':
         if request.form.get("register"):
             return render_template("register.html")
+
+        # Ensure username was submitted
+        if not request.form.get("username"):
+            return apology("must provide username", 403)
+
+        # Ensure password was submitted
+        elif not request.form.get("password"): 
+            return apology("must provide password", 403)
 
         username = request.form.get("username")
         password = request.form.get("password")
@@ -41,14 +44,14 @@ def login():
         rows = db.execute("SELECT * FROM users WHERE username = ?", username)
 
         if len(rows) != 1 or password != rows[0]['password']:
-            error = 'Invalid Credentials. Please try again.'
+            return apology("invalid username and/or password", 403)
         
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
         return render_template('homepage.html')
 
     else:
-        return render_template('login.html', error=error)
+        return render_template('login.html')
 
 @app.route("/logout")
 def logout():
@@ -63,7 +66,6 @@ def logout():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    # User reached route via POST (as by submitting a form via POST)
     if request.method == "POST":
 
         # Ensure username was submitted
@@ -101,6 +103,7 @@ def register():
     else:
         return render_template("register.html")
 
+# Function from finance but I changed the error image
 def apology(message, code=400):
     """Render message as an apology to user."""
     def escape(s):
@@ -118,12 +121,14 @@ def apology(message, code=400):
     return render_template("apology.html", top=code, bottom=escape(message)), code
 
 
+# Displays the weights that the person has done, for progress 
 @app.route("/weight-log")
 def weightLog():
     logs= db.execute("SELECT exercise, weight, date FROM weightLog WHERE userId=?", session['user_id'])
     
     return render_template ("weight-log.html", logs=logs)
 
+# Sorting which workout method the user will be assigned beased on their answers to the quiz
 @app.route("/quiz", methods=['GET', 'POST'])
 def sorting():
     if request.method == "POST":
@@ -146,6 +151,7 @@ def sorting():
         return render_template("home.html", number=number)
     return render_template("quiz.html")
 
+# Displaying a page with tutorials on the exercises depending on the setting the person has chosen in the quiz.
 @app.route("/tutorials2")
 def sorting2():
     workout_style = db.execute("SELECT workout_style FROM users WHERE id = ?", session['user_id'])
@@ -164,6 +170,7 @@ def sorting2():
     else:
         return render_template("tutorials2.html")
 
+# Displays the workout plans for the user and the user can record the weights if used in the workout plans. 
 @app.route("/home", methods=["GET", "POST"])
 def workout_page():
     style = db.execute("SELECT workout_style FROM users WHERE id = ?", session['user_id'])
@@ -179,6 +186,7 @@ def workout_page():
             db.execute("INSERT INTO weightLog (userId,exercise, weight,date) VALUES (?,?,?,?)", session['user_id'],request.form.get("exercise"), request.form.get("weight"), today)
     return render_template("home.html", number=number)
 
+# Displays a calendar, lets record meetings or important dates for the user and displays them accoring to the month and year.  
 @app.route("/calendar", methods=["GET", "POST"])
 def calendar():
 
@@ -195,4 +203,4 @@ def calendar():
     month = datetime.now().month
     year = datetime.now().year
         
-    return render_template("calendar.html", user=user, month=month, year=year) #cal=cal
+    return render_template("calendar.html", user=user, month=month, year=year)
