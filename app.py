@@ -48,7 +48,7 @@ def login():
         
         # Remember which user has logged in
         session["user_id"] = rows[0]["id"]
-        return render_template('homepage.html')
+        return render_template('greet.html')
 
     else:
         return render_template('login.html')
