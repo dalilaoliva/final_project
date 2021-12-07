@@ -204,3 +204,8 @@ def calendar():
     year = datetime.now().year
         
     return render_template("calendar.html", user=user, month=month, year=year)
+
+
+@app.route("/greet")
+def greet():
+    return render_template("greet.html")
