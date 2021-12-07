@@ -149,16 +149,23 @@ def sorting():
 @app.route("/tutorials2")
 def sorting2():
     workout_style = db.execute("SELECT workout_style FROM users WHERE id = ?", session['user_id'])
-    if workout_style == 1 or 2 or 3:
+    wstyle=workout_style[0]['workout_style']
+    print(wstyle)
+    
+    if wstyle == 1 or wstyle == 2 or wstyle == 3:
         homeup = db.execute("SELECT name, link FROM videos WHERE exercise_type = 'homeup' ")
         homelow = db.execute("SELECT name, link FROM videos WHERE exercise_type = 'homelow' ")
-        return render_template("tutorials2.html", homeup = homeup, homelow = homelow, workout_style = workout_style)
-    elif workout_style == 4 or 5 or 6:
+        print("returning home")
+        return render_template("tutorials2.html", homeup = homeup, homelow = homelow, wstyle = wstyle)
+
+    elif wstyle == 4 or wstyle == 5 or wstyle == 6:
         gymup = db.execute("SELECT name, link FROM videos WHERE exercise_type = 'gymup' ")
         gymlow = db.execute("SELECT name, link FROM videos WHERE exercise_type = 'gymlow' ")
-        return render_template("tutorials2.html", gymup = gymup, gymlow = gymlow, workout_style = workout_style)
+        print("returning gym")
+        return render_template("tutorials2.html", gymup = gymup, gymlow = gymlow, wstyle = wstyle)
+
     else:
-        return render_template("/")
+        return render_template("tutorials2.html")
 
 @app.route("/home", methods=["GET", "POST"])
 def workout_page():
@@ -190,6 +197,5 @@ def calendar():
     user = db.execute("SELECT event, day, month, year FROM calendar WHERE userid =?", session['user_id'])
     month = datetime.now().month
     year = datetime.now().year
-    # cal = HTMLCalendar().formatmonth(year, month)
         
     return render_template("calendar.html", user=user, month=month, year=year) #cal=cal
