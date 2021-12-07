@@ -135,11 +135,9 @@ def sorting():
     if request.method == "POST":
 
         number=0
-        if not request.form["option1"]:
-            print("option 1")
+        if not request.form.get("option1"):
             return apology("Choose one answer from each question", 403)
-        if not request.form["option2"]:
-            print("option 2")
+        if not request.form.get("option2"):
             return apology("Choose one answer from each question", 403)
 
         if request.form["option1"] == "home":
