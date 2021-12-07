@@ -105,7 +105,7 @@
             </thead>
             <tbody>
                 {% for events in user %}
-                    {% if events['month'] == month  and events['year'] == year %}
+                    {% if events['month'] == month and events['year'] == year %}
                     <tr>
                         <td class="text-start">{{events['event']}}</td>
                         <td class="text-start">{{events['day']}}</td>
